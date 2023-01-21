@@ -2,6 +2,7 @@ package com.skilldistillery.books.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,11 @@ public class Book {
 	private String  title;
 	
 	private String author;
+	
+	private String synopsis;
+	
+	@Column(name="cover_art")
+	private String coverArt;
 	
 	
 	
@@ -45,7 +51,7 @@ public class Book {
 
 
 
-	public void setName(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
@@ -59,6 +65,30 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+
+
+	public String getCoverArt() {
+		return coverArt;
+	}
+
+
+
+	public void setCoverArt(String coverArt) {
+		this.coverArt = coverArt;
 	}
 
 
@@ -86,7 +116,9 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", Title=" + title + ", author=" + author + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", synopsis=" + synopsis + ", coverArt="
+				+ coverArt + "]";
 	}
+
 
 }

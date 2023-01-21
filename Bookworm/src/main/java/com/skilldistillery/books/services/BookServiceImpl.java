@@ -32,20 +32,38 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book create(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		bookRepo.saveAndFlush(book);
+		
+		return book;
 	}
 
 	@Override
 	public Book update(Book book, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Book> bookOpt = bookRepo.findById(id);
+		Book updated = null;
+		if (bookOpt.isPresent()) {
+			updated = bookOpt.get();
+			updated.setAuthor(book.getAuthor());
+			updated.setSynopsis(book.getSynopsis());
+			updated.setTitle(book.getTitle());
+			updated.setCoverArt(book.getCoverArt());
+		} 
+		
+		return updated;
 	}
 
 	@Override
 	public boolean deleteById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean deleted = false;
+		Optional<Book> bookOpt = bookRepo.findById(id);
+		Book book = null;
+		if(bookOpt.isPresent()) {
+			book = bookOpt.get();
+			bookRepo.delete(book);
+			deleted = true;
+		}
+		return deleted;
 	}
 	
 	
