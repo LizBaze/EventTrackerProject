@@ -20,6 +20,12 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findAll();
 	}
 
+	
+//	@Override
+//	public List<Book> findAll() {
+//		return bookRepo.findAll();
+//	}
+	
 	@Override
 	public User getUser(int id) {
 		Optional<User> userOpt = userRepo.findById(id);
@@ -65,7 +71,18 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		
-		return false;
+		return deleted;
+	}
+
+	@Override
+	public User findByUsernameAndPassword(String username, String password) {
+		User user = null;
+		List<User> userList = userRepo.findByUsernameAndPassword(username, password);
+		if (! userList.isEmpty()) {
+			user = userList.get(0);
+		}
+		
+		return user;
 	}
 
 }

@@ -10,5 +10,6 @@ public interface UserService {
 	User createUser(User user);
 	User updateUser(User user, int id);
 	boolean deleteUser(int id);
+	User findByUsernameAndPassword(String username, String password);
 
 }

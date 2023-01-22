@@ -11,6 +11,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 	
@@ -23,11 +25,13 @@ public class User {
 	private String password;
 	
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<Review> reviews;
 	
 	
 	@ManyToMany
 	@JoinTable(name="followers")
+	@JsonIgnore
 	private List<User> followers;
 	
 	
