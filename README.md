@@ -2,7 +2,7 @@
 
 ### Description
 
-This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process. A stretch goal is to allow users to see other users' reviews of books as well. The project makes use of a relatively simple database schema of four tables; User, Book, Review, and follower. The review table not only holds users' reviews of books but serves as a join table between User and Book.
+This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process. A stretch goal is to allow users to see other users' reviews of books as well. 
 
 ### Route Mappings
 
@@ -30,3 +30,7 @@ This project is meant to allow users to log what books they've read recently and
 - Spring Data JPA
 - SpringBoot
 - RESTful APIs
+
+### Database Schema
+The project makes use of a relatively simple database schema of four tables; User, Book, Review, and follower. The review table not only holds users' reviews of books but serves as a join table between User and Book.
+![Screen Shot 2023-01-22 at 11 53 57 AM](https://user-images.githubusercontent.com/112978206/213931846-ae91130f-4444-4d72-bf2c-fde1729f0505.png)
