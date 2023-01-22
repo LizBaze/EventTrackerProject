@@ -20,9 +20,11 @@ This project is meant to allow users to log what books they've read recently and
 | `void` | `DELETE` api/books/{id} | Deletes a book |
 | `List<Review>`    |`GET api/reviews` | Gets all reviews|
 | `Review` | `GET api/reviews/{id}` | Gets a specific review |
-| `Review` | `POST` api/reviews | Creates a new review |
+| `Review` | `POST` api/reviews | Creates a new review* |
 | `Review` | `PUT` api/reviews/{id} | Updates a review |
 | `void` | `DELETE` api/reviews/{id} | Deletes a review |
+
+*Please note that a user may only have one review for each book. This means that the combination of user_id and book_id must be unique for each review
 
 
 ### Technologies Used
