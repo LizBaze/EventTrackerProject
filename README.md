@@ -36,6 +36,9 @@ There is a rudimentary javascript front end that handles all network requests th
 - RESTful APIs
 - Javascript
 
+### Known Issues 
+Deletion of the prepopulated books is current not possible due the nature of the database design, as I would need to delete all reviews of that book as well. My vision of the end goal is somewhat hindering my ability to complete the project as assigned. However, new user created book objects are able to be deleted as they aren't associated with any reviews.
+
 ### Database Schema
 The project makes use of a relatively simple database schema of four tables; User, Book, Review, and follower. The review table not only holds users' reviews of books but serves as a join table between User and Book.
 
