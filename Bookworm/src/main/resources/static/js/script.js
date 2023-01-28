@@ -36,6 +36,23 @@ function displayBooks(books) {
 	//DOM
 	let bookTable = document.getElementById("bookTable")
 	bookTable.textContent="";
+	let tableHead = document.createElement("thead");
+	let headerRow = document.createElement("tr");
+	let authorHeader = document.createElement("th");
+	let titleHeader = document.createElement("th");
+	titleHeader.textContent = "Title";
+	authorHeader.textContent = "Author";
+	headerRow.appendChild(titleHeader);
+	headerRow.appendChild(authorHeader);
+	
+	
+	tableHead.appendChild(headerRow);
+	bookTable.appendChild(tableHead);
+	
+	
+	
+	let tableBody = document.createElement("tbody");
+	bookTable.append(tableBody);
 	for (let book of books) {
 		let tr = document.createElement("tr");
 		let tdTitle = document.createElement("td");
@@ -52,7 +69,7 @@ function displayBooks(books) {
 		tr.appendChild(tdAuthor);
 		tr.appendChild(tdID);
 		tr.addEventListener('click', getBook);
-		bookTable.appendChild(tr);
+		tableBody.appendChild(tr);
 	}
 }
 
