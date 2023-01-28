@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bookworm</title>
+<script type="text/javascript" src="js/script.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+	<h1>Welcome to Bookworm</h1>
+	
+	<form name="newBook">
+		<input type="text" name="title" placeholder="Title"></input>
+		<br>
+		<input type="text" name="author" placeholder="Author"></input>
+		<br>
+		<textarea name="synopsis" placeholder="Synopsis"></textarea>
+		<br>
+		<input type="text" name="imageUrl" placeholder="Image URL"></input>
+		<br>
+		<input type="submit" name="submit" value="Submit">
+		
+	</form>
+	
+
+	<table id ="bookTable">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+			</tr>
+		</thead>
+		
+	</table>
+	
+	<div id="displayBook"></div>
+
+</body>
+</html>
