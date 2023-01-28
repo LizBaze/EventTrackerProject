@@ -4,6 +4,8 @@
 
 This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process. A stretch goal is to allow users to see other users' reviews of books as well.
 
+There is a rudimentary javascript front end that handles all network requests through the use of XMLHttpRequest objects. Full CRUD is enabled of book objects. There will be a more well-developed Angular front end next week, at which time I hope to enable full CRUD of User and Review objects as well. 
+
 ### Route Mappings
 
 | Return Type     | Route                 | Functionality            | Request Body | Response Body |
@@ -32,6 +34,7 @@ This project is meant to allow users to log what books they've read recently and
 - Spring Data JPA
 - SpringBoot
 - RESTful APIs
+- Javascript
 
 ### Database Schema
 The project makes use of a relatively simple database schema of four tables; User, Book, Review, and follower. The review table not only holds users' reviews of books but serves as a join table between User and Book.
