@@ -6,23 +6,23 @@ This project is meant to allow users to log what books they've read recently and
 
 ### Route Mappings
 
-| Return Type     | Route                 | Functionality            |
+| Return Type     | Route                 | Functionality            | Request Body | Response Body |
 |-----------------|-----------------------|--------------------------|
-| `List<User>`    |`GET api/users` | Gets all users|
-| `User` | `GET api/users/{id}` | Gets a specific user |
-| `User` | `POST` api/users | Creates a new user |
-| `User` | `PUT` api/users/{id} | Updates a user |
-| `void` | `DELETE` api/users/{id} | Deletes a user |
-| `List<Book>`    |`GET api/books` | Gets all books|
-| `Book` | `GET api/book/{id}` | Gets a specific book |
-| `Book` | `POST` api/books | Creates a new book |
-| `Book` | `PUT` api/books/{id} | Updates a book |
-| `void` | `DELETE` api/books/{id} | Deletes a book |
-| `List<Review>`    |`GET api/reviews` | Gets all reviews|
-| `Review` | `GET api/reviews/{id}` | Gets a specific review |
-| `Review` | `POST` api/reviews | Creates a new review* |
-| `Review` | `PUT` api/reviews/{id} | Updates a review |
-| `void` | `DELETE` api/reviews/{id} | Deletes a review |
+| `List<User>`    |`GET api/users` | Gets all users| | Collection of representations of User objects
+| `User` | `GET api/users/{id}` | Gets a specific user | | Representation of user {id} |
+| `User` | `POST` api/users | Creates a new user | Representation of a new user object | Representation of the created user object or an error message |
+| `User` | `PUT` api/users/{id} | Updates a user | Representation of new version of user {id} | Representation of the changed user object or an error message |
+| `void` | `DELETE` api/users/{id} | Deletes a user | | |
+| `List<Book>`    |`GET api/books` | Gets all books| | Collection of representations of Book objects |
+| `Book` | `GET api/book/{id}` | Gets a specific book | | Representation of book {id} |
+| `Book` | `POST` api/books | Creates a new book | Representaiton of a new book object | Representation of the created book object or an error message |
+| `Book` | `PUT` api/books/{id} | Updates a book | Representation of new version of book {id} | Representation of the changed book object or an error message |
+| `void` | `DELETE` api/books/{id} | Deletes a book | | |
+| `List<Review>`    |`GET api/reviews` | Gets all reviews| | Collection of representations of Review objects |
+| `Review` | `GET api/reviews/{id}` | Gets a specific review | | Representation of review {id} |
+| `Review` | `POST` api/reviews | Creates a new review* | Represenation of a new review object | Representation of the created review object or an error message |
+| `Review` | `PUT` api/reviews/{id} | Updates a review | Representation of new version of review {id} | Representation of the changed review object or an error message |
+| `void` | `DELETE` api/reviews/{id} | Deletes a review | | |
 
 *Please note that a user may only have one review for each book. This means that the combination of user_id and book_id must be unique for each review
 
