@@ -7,7 +7,7 @@ This project is meant to allow users to log what books they've read recently and
 ### Route Mappings
 
 | Return Type     | Route                 | Functionality            | Request Body | Response Body |
-|-----------------|-----------------------|--------------------------|
+|-----------------|-----------------------|--------------------------| ------------ | ------------- |
 | `List<User>`    |`GET api/users` | Gets all users| | Collection of representations of User objects
 | `User` | `GET api/users/{id}` | Gets a specific user | | Representation of user {id} |
 | `User` | `POST` api/users | Creates a new user | Representation of a new user object | Representation of the created user object or an error message |
