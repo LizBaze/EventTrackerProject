@@ -14,7 +14,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired
 	private ReviewRepository revRepo;
-	
+
 	@Override
 	public List<Review> findAll() {
 		return revRepo.findAll();
@@ -32,13 +32,8 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public Review create(Review review) {
-		List<Review> existing = revRepo.findByBookAndUser(review.getBook(), review.getUser());
-		if (existing.isEmpty()) {
-			revRepo.saveAndFlush(review);
-		} else {
-			review = null;
-		}
-		
+		revRepo.saveAndFlush(review);
+
 		return review;
 	}
 
@@ -46,10 +41,13 @@ public class ReviewServiceImpl implements ReviewService {
 	public Review update(Review review, int id) {
 		Review updated = null;
 		Optional<Review> revOpt = revRepo.findById(id);
-		if(revOpt.isPresent()) {
+		if (revOpt.isPresent()) {
 			updated = revOpt.get();
 			updated.setDescription(review.getDescription());
-			updated.setVisibile(review.isVisibile());
+			updated.setCoverArt(review.getCoverArt());
+			updated.setSynopsis(review.getSynopsis());
+			updated.setTitle(review.getTitle());
+			revRepo.saveAndFlush(updated);
 		}
 		return updated;
 	}
@@ -58,7 +56,7 @@ public class ReviewServiceImpl implements ReviewService {
 	public boolean delete(int id) {
 		boolean deleted = false;
 		Optional<Review> revOpt = revRepo.findById(id);
-		if(revOpt.isPresent()) {
+		if (revOpt.isPresent()) {
 			revRepo.delete(revOpt.get());
 			deleted = true;
 		}

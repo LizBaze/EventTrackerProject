@@ -46,8 +46,7 @@ class ReviewTest {
 	void test_Review_entity() {
 		assertNotNull(rev);
 		assertEquals("Excellent read", rev.getDescription());
-		assertEquals("Brandon Sanderson", rev.getBook().getAuthor());
-		assertEquals("admin", rev.getUser().getUsername());
+		
 	}
 
 }

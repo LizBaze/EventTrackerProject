@@ -1,5 +1,6 @@
 package com.skilldistillery.books.entities;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class Review {
 	
@@ -17,18 +21,22 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name="book_id")
-	private Book book;
-	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
-	
-	@Column(name="public")
-	private boolean visibile;
-	
 	private String description;
+	
+	private String title;
+	
+	private String synopsis;
+	
+	@Column(name="cover_art")
+	private String coverArt;
+	
+	@Column(name="date_created")
+	@CreationTimestamp
+	private LocalDateTime dateCreated;
+	
+	@Column(name="date_updated")
+	@UpdateTimestamp
+	private LocalDateTime dateUpdated;
 	
 	
 	
@@ -48,42 +56,6 @@ public class Review {
 
 
 
-	public Book getBook() {
-		return book;
-	}
-
-
-
-	public void setBook(Book book) {
-		this.book = book;
-	}
-
-
-
-	public User getUser() {
-		return user;
-	}
-
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
-
-	public boolean isVisibile() {
-		return visibile;
-	}
-
-
-
-	public void setVisibile(boolean visibile) {
-		this.visibile = visibile;
-	}
-
-
-
 	public String getDescription() {
 		return description;
 	}
@@ -92,6 +64,66 @@ public class Review {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+
+
+	public String getCoverArt() {
+		return coverArt;
+	}
+
+
+
+	public void setCoverArt(String coverArt) {
+		this.coverArt = coverArt;
+	}
+
+
+
+	public LocalDateTime getDateCreated() {
+		return dateCreated;
+	}
+
+
+
+	public void setDateCreated(LocalDateTime dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+
+
+	public LocalDateTime getDateUpdated() {
+		return dateUpdated;
+	}
+
+
+
+	public void setDateUpdated(LocalDateTime dateUpdated) {
+		this.dateUpdated = dateUpdated;
 	}
 
 
@@ -119,13 +151,9 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", book=" + book + ", user=" + user + ", visibile=" + visibile + ", description="
-				+ description + "]";
+		return "Review [id=" + id + ", description=" + description + ", title=" + title + ", synopsis=" + synopsis
+				+ ", coverArt=" + coverArt + ", dateCreated=" + dateCreated + ", dateUpdated=" + dateUpdated + "]";
 	}
-	
-	
-	
-	
-	
+
 
 }

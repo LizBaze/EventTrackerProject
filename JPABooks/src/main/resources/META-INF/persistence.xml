@@ -7,7 +7,7 @@
     
 		<!-- begin entities -->
 
-		<class>com.skilldistillery.books.entities.Book</class>
+		<class>com.skilldistillery.books.entities.Review</class>
 
 		<!-- end entities -->
 
