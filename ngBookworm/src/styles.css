@@ -7,9 +7,33 @@
 }
 
 .coverArt {
-  width: 250px;
+  width: 150px;
   height: auto;
+  margin: 15px;
 }
+
+.text {
+  padding: 10px;
+  background: rgba(125, 125, 125, 0.6);
+  border-radius: 25px;
+}
+
+.btn {
+  background-color: #806517;
+  outline: none !important;
+  box-shadow: none !important;
+
+}
+.btn:hover {
+  background-color: #806517;
+}
+.btn:active, .brn:focus{
+  outline-color:#806517;
+  outline: none !important;
+  box-shadow: none !important;
+
+}
+
 
 
 .page::after {
@@ -26,4 +50,19 @@
   background-position: 50% 0;
   background-size: cover;
   z-index: -1;
+}
+
+
+.grid-container {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fit, 150px);
+	grid-template-rows: auto;
+	place-items: center;
+	align-items: start;
+	padding-top: 20px;
+}
+
+.grid-item {
+	width: 150;
 }

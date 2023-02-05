@@ -1,92 +1,128 @@
 <div class="page">
+  <h1>Look! Books!</h1>
+  <div *ngIf="!displayReview && !newReview">
+    <input
+      class="btn mb-2"
+      type="submit"
+      value="Add Book Review"
+      (click)="initialize()"
+    />
+    <div class="grid-container">
+      <div
+      class="grid-item"
+      *ngFor="let review of reviews"
+      (click)="display(review)"
+      >
+      <img class="coverArt" src="{{ review.coverArt }}" alt="" />
+      <h3>{{ review.title }}</h3>
+    </div>
+  </div>
+</div>
 
-<h1>Look! Books!</h1>
-<div *ngIf="!displayReview && !newReview">
-  <div *ngFor="let review of reviews" (click)="display(review)">
-    <img class="coverArt" src="{{review.coverArt}}" alt="">
-    <h3>{{review.title}}</h3>
-
+  <div *ngIf="displayReview">
+    <img class="coverArt" src="{{ displayReview.coverArt }}" alt="" />
+    <div class="text">
+    <h3>{{ displayReview.title }}</h3>
+    <p>{{ displayReview.synopsis }}</p>
+    <p>{{ displayReview.description }}</p>
+  </div>
+    <div>
+      <input
+        class="btn mb-2"
+        type="submit"
+        value="Edit"
+        (click)="editReview = displayReview"
+      />
+      <input
+        class="btn mb-2"
+        type="submit"
+        value="Delete"
+        (click)="destroy(displayReview.id)"
+      />
+      <input
+        class="btn mb-2"
+        type="submit"
+        value="Back"
+        (click)="displayReview = null; editReview = null"
+      />
+    </div>
   </div>
 
-  <input class="btn btn-primary mb-2" type="submit" value="Add Book Review" (click)="initialize()" />
-</div>
+  <div *ngIf="editReview" class="form-group">
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      type="text"
+      name="title"
+      [(ngModel)]="editReview.title"
+    />
+    <label for="synopsis">Synopsis</label>
+    <textarea
+      class="form-control"
+      name="synopsis"
+      [(ngModel)]="editReview.synopsis"
+    ></textarea>
+    <label for="coverArt">Cover Art</label>
+    <input
+      class="form-control"
+      type="text"
+      name="coverArt"
+      [(ngModel)]="editReview.coverArt"
+    />
+    <label for="description">Review</label>
+    <textarea
+      class="form-control"
+      name="description"
+      id=""
+      [(ngModel)]="editReview.description"
+    ></textarea>
+    <input
+      class="btn"
+      type="submit"
+      value="Submit"
+      (click)="update(editReview)"
+    />
+  </div>
 
-
-
-<div *ngIf="displayReview">
-  <img class="coverArt" src="{{displayReview.coverArt}}" alt="">
-    <h3>{{displayReview.title}}</h3>
-    <p>{{displayReview.synopsis}}</p>
-    <p>{{displayReview.description}}</p>
-  <div>
-  <input class="btn btn-primary mb-2" type="submit" value="Edit" (click)="editReview = displayReview" />
-  <input class="btn btn-danger mb-2" type="submit" value="Delete" (click)="destroy(displayReview.id)" />
-  <input class="btn btn-primary mb-2" type="submit" value="Back" (click)="displayReview = null; editReview = null;" />
-</div>
-</div>
-
-<div *ngIf="editReview" class="form-group">
-  <label for="title">Title</label>
-  <input
-    class="form-control"
-    type="text"
-    name="title"
-    [(ngModel)]="editReview.title"
-  />
-  <label for="synopsis">Synopsis</label>
-  <textarea
-    class="form-control"
-    name="synopsis"
-    [(ngModel)]="editReview.synopsis"
-  ></textarea>
-  <label for="coverArt">Cover Art</label>
-  <input
-    class="form-control"
-    type="text"
-    name="coverArt"
-    [(ngModel)]="editReview.coverArt"
-  />
-  <label for="description">Review</label>
-  <textarea
-    class="form-control"
-    name="description"
-    id=""
-    [(ngModel)]="editReview.description"
-  ></textarea>
-  <input class="btn btn-primary" type="submit" value="Submit" (click)="update(editReview)" />
-</div>
-
-<div *ngIf="newReview" class="form-group">
-
-  <label for="title">Title</label>
-  <input
-    class="form-control"
-    type="text"
-    name="title"
-    [(ngModel)]="newReview.title"
-  />
-  <label for="synopsis">Synopsis</label>
-  <textarea
-    class="form-control"
-    name="synopsis"
-    [(ngModel)]="newReview.synopsis"
-  ></textarea>
-  <label for="coverArt">Cover Art</label>
-  <input
-    class="form-control"
-    type="text"
-    name="coverArt"
-    [(ngModel)]="newReview.coverArt"
-  />
-  <label for="description">Review</label>
-  <textarea
-    class="form-control"
-    name="description"
-    id=""
-    [(ngModel)]="newReview.description"
-  ></textarea>
-  <input class="btn btn-primary" type="submit" value="Submit" (click)="create(newReview)">
-  <input class="btn btn-primary" type="submit" value="Cancel" (click)="newReview = null">
-</div>
-
+  <div *ngIf="newReview" class="form-group">
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      type="text"
+      name="title"
+      [(ngModel)]="newReview.title"
+    />
+    <label for="synopsis">Synopsis</label>
+    <textarea
+      class="form-control"
+      name="synopsis"
+      [(ngModel)]="newReview.synopsis"
+    ></textarea>
+    <label for="coverArt">Cover Art</label>
+    <input
+      class="form-control"
+      type="text"
+      name="coverArt"
+      [(ngModel)]="newReview.coverArt"
+    />
+    <label for="description">Review</label>
+    <textarea
+      class="form-control"
+      name="description"
+      id=""
+      [(ngModel)]="newReview.description"
+    ></textarea>
+    <input
+      class="btn "
+      type="submit"
+      value="Submit"
+      (click)="create(newReview)"
+    />
+    <input
+      class="btn"
+      type="submit"
+      value="Cancel"
+      (click)="newReview = null"
+    />
+  </div>
 </div>
