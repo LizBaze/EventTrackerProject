@@ -24,6 +24,10 @@ export class ReviewComponent implements OnInit {
 
   ngOnInit() {
     this.reload();
+    let id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id && !isNaN(id)) {
+      this.show(id);
+    }
   }
 
   display(review: Review) {

@@ -6,6 +6,10 @@
   margin: 5px;
 }
 
+.coverArt {
+  width: 250px;
+  height: auto;
+}
 
 
 .page::after {
@@ -18,7 +22,7 @@
   height: 100%;
   opacity: 0.656;
   background-image: url('https://wallpaperaccess.com/full/1921858.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: 50% 0;
   background-size: cover;
   z-index: -1;

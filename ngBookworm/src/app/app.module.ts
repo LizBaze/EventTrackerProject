@@ -1,3 +1,4 @@
+import { ReviewService } from './services/review.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +23,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

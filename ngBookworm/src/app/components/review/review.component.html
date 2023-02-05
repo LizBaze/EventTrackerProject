@@ -2,12 +2,11 @@
 
 <h1>Look! Books!</h1>
 <div *ngIf="!displayReview && !newReview">
-  <ul *ngFor="let review of reviews" (click)="display(review)">
-    <img src="{{review.coverArt}}" alt="">
+  <div *ngFor="let review of reviews" (click)="display(review)">
+    <img class="coverArt" src="{{review.coverArt}}" alt="">
     <h3>{{review.title}}</h3>
-    <p>{{review.synopsis}}</p>
-    <p>{{review.description}}</p>
-  </ul>
+
+  </div>
 
   <input class="btn btn-primary mb-2" type="submit" value="Add Book Review" (click)="initialize()" />
 </div>
@@ -15,11 +14,10 @@
 
 
 <div *ngIf="displayReview">
-  <ul>
-    <li>{{ displayReview.title }}</li>
-    <li>{{ displayReview.synopsis }}</li>
-    <li>{{ displayReview.description }}</li>
-  </ul>
+  <img class="coverArt" src="{{displayReview.coverArt}}" alt="">
+    <h3>{{displayReview.title}}</h3>
+    <p>{{displayReview.synopsis}}</p>
+    <p>{{displayReview.description}}</p>
   <div>
   <input class="btn btn-primary mb-2" type="submit" value="Edit" (click)="editReview = displayReview" />
   <input class="btn btn-danger mb-2" type="submit" value="Delete" (click)="destroy(displayReview.id)" />
