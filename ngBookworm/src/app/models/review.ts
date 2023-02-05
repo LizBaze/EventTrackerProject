@@ -1,4 +1,5 @@
 export class Review {
+  id: number;
 
   description: string;
 
@@ -11,16 +12,18 @@ export class Review {
   dateCreated: string;
 
   dateUpdated: string;
-//TODO fix ur shit nerd
-
+  //TODO fix ur shit nerd
 
   constructor(
-    description: string = "",
-    title: string = "",
-    synopsis: string = "",
-    coverArt: string = "",
-    dateCreated: string = "",
-    dateUpdated: string = "") {
+    id: number = 0,
+    description: string = '',
+    title: string = '',
+    synopsis: string = '',
+    coverArt: string = '',
+    dateCreated: string = '',
+    dateUpdated: string = ''
+  ) {
+    this.id = id;
     this.description = description;
     this.title = title;
     this.synopsis = synopsis;
@@ -28,6 +31,4 @@ export class Review {
     this.dateCreated = dateCreated;
     this.dateUpdated = dateUpdated;
   }
-
-
 }

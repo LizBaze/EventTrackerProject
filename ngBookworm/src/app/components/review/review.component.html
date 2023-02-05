@@ -1,8 +1,94 @@
+<div class="page">
+
 <h1>Look! Books!</h1>
-<div *ngFor="let review of reviews">
-<ul>
-  <li>{{review.description}}</li>
-  <li>{{review.title}}</li>
-  <li>{{review.synopsis}}</li>
-</ul>
+<div *ngIf="!displayReview && !newReview">
+  <ul *ngFor="let review of reviews" (click)="display(review)">
+    <img src="{{review.coverArt}}" alt="">
+    <h3>{{review.title}}</h3>
+    <p>{{review.synopsis}}</p>
+    <p>{{review.description}}</p>
+  </ul>
+
+  <input class="btn btn-primary mb-2" type="submit" value="Add Book Review" (click)="initialize()" />
+</div>
+
+
+
+<div *ngIf="displayReview">
+  <ul>
+    <li>{{ displayReview.title }}</li>
+    <li>{{ displayReview.synopsis }}</li>
+    <li>{{ displayReview.description }}</li>
+  </ul>
+  <div>
+  <input class="btn btn-primary mb-2" type="submit" value="Edit" (click)="editReview = displayReview" />
+  <input class="btn btn-danger mb-2" type="submit" value="Delete" (click)="destroy(displayReview.id)" />
+  <input class="btn btn-primary mb-2" type="submit" value="Back" (click)="displayReview = null; editReview = null;" />
+</div>
+</div>
+
+<div *ngIf="editReview" class="form-group">
+  <label for="title">Title</label>
+  <input
+    class="form-control"
+    type="text"
+    name="title"
+    [(ngModel)]="editReview.title"
+  />
+  <label for="synopsis">Synopsis</label>
+  <textarea
+    class="form-control"
+    name="synopsis"
+    [(ngModel)]="editReview.synopsis"
+  ></textarea>
+  <label for="coverArt">Cover Art</label>
+  <input
+    class="form-control"
+    type="text"
+    name="coverArt"
+    [(ngModel)]="editReview.coverArt"
+  />
+  <label for="description">Review</label>
+  <textarea
+    class="form-control"
+    name="description"
+    id=""
+    [(ngModel)]="editReview.description"
+  ></textarea>
+  <input class="btn btn-primary" type="submit" value="Submit" (click)="update(editReview)" />
+</div>
+
+<div *ngIf="newReview" class="form-group">
+
+  <label for="title">Title</label>
+  <input
+    class="form-control"
+    type="text"
+    name="title"
+    [(ngModel)]="newReview.title"
+  />
+  <label for="synopsis">Synopsis</label>
+  <textarea
+    class="form-control"
+    name="synopsis"
+    [(ngModel)]="newReview.synopsis"
+  ></textarea>
+  <label for="coverArt">Cover Art</label>
+  <input
+    class="form-control"
+    type="text"
+    name="coverArt"
+    [(ngModel)]="newReview.coverArt"
+  />
+  <label for="description">Review</label>
+  <textarea
+    class="form-control"
+    name="description"
+    id=""
+    [(ngModel)]="newReview.description"
+  ></textarea>
+  <input class="btn btn-primary" type="submit" value="Submit" (click)="create(newReview)">
+  <input class="btn btn-primary" type="submit" value="Cancel" (click)="newReview = null">
+</div>
+
 </div>
