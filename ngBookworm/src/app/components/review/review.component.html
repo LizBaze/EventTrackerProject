@@ -1,6 +1,7 @@
 <div class="page">
   <h1>Look! Books!</h1>
   <div *ngIf="!displayReview && !newReview">
+    <h4>Reviews This Year: {{reviewCount()}}</h4>
     <input
       class="btn mb-2"
       type="submit"
@@ -27,6 +28,8 @@
     <p>{{ displayReview.synopsis }}</p>
     <h4>Review</h4>
     <p>{{ displayReview.description }}</p>
+    <h5>Date Uploaded</h5>
+    <p>{{displayReview.dateCreated | date}}</p>
   </div>
     <div>
       <input

@@ -30,6 +30,17 @@ export class ReviewComponent implements OnInit {
     }
   }
 
+  reviewCount() {
+    let count = 0 ;
+    for (let review of this.reviews) {
+
+      if (review.dateCreated.includes("2023")) {
+        count++
+      }
+    }
+    return count;
+  }
+
   display(review: Review) {
     this.displayReview = review;
     this.newReview = null;
