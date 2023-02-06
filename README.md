@@ -2,9 +2,9 @@
 
 ### Description
 
-This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process. It also tracks how many reviews have been created in the current calendar year. 
+This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process. It also tracks how many reviews have been created in the current calendar year.
 
-There is an angular front end that handles all API calls. Full CRUD is enabled of reviews.
+It was built on a MySQL database, Spring Data JPA and has APIs built in SpringBoot. There is an angular front end that handles all API calls. Full CRUD is enabled of reviews. Below is a table of the API routes.
 
 ### Route Mappings
 
