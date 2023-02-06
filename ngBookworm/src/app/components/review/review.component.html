@@ -22,8 +22,10 @@
   <div *ngIf="displayReview">
     <img class="coverArt" src="{{ displayReview.coverArt }}" alt="" />
     <div class="text">
-    <h3>{{ displayReview.title }}</h3>
+    <h3 class="title">{{ displayReview.title }}</h3>
+    <h4>Synopsis</h4>
     <p>{{ displayReview.synopsis }}</p>
+    <h4>Review</h4>
     <p>{{ displayReview.description }}</p>
   </div>
     <div>

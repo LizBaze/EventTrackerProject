@@ -12,6 +12,10 @@
   margin: 15px;
 }
 
+.title{
+  text-decoration: underline;
+}
+
 .text {
   padding: 10px;
   background: rgba(125, 125, 125, 0.6);
