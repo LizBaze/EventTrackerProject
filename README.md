@@ -2,9 +2,9 @@
 
 ### Description
 
-This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process.
+This project is meant to allow users to log what books they've read recently and record their thoughts and takeaways in the process. It also tracks how many reviews have been created in the current calendar year. 
 
-The front end was made with angular. Full CRUD is enabled of reviews.
+There is an angular front end that handles all API calls. Full CRUD is enabled of reviews.
 
 ### Route Mappings
 
