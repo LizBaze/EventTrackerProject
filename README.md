@@ -25,9 +25,4 @@ The front end was made with angular. Full CRUD is enabled of reviews.
 - RESTful APIs
 - Javascript
 - Angular
-
-
-### Database Schema
-The project makes use of a simple, single table database.
-
-![Screen Shot 2023-01-22 at 11 53 57 AM](https://user-images.githubusercontent.com/112978206/213931846-ae91130f-4444-4d72-bf2c-fde1729f0505.png)
+- Typescript
